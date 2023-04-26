@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+
+		nav {
+			position: fixed;
+			left: -200px;
+			top: 0;
+			width: 200px;
+			height: 100%;
+			background-color: #333;
+			transition: left 0.5s ease;
+		}
+
+		nav.open {
+			left: 0;
+		}
+
+		nav ul {
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		nav ul li {
+			padding: 10px;
+			color: white;
+		}
+
+		nav ul li:hover {
+			background-color: #555;
+			cursor: pointer;
+		}
+
+		.menu-button {
+			position: fixed;
+			left: 0px;
+			top: 30px;
+			transform: translateY(-50%);
+			width: 30px;
+			height: 30px;
+			background-color: #333;
+			color: white;
+			font-size: 20px;
+			text-align: center;
+			line-height: 30px;
+			border-radius: 0px;
+			cursor: pointer;
+			transition: background-color 0.5s ease, left 0.5s ease;
+			z-index: 1;
+		}
+
+		.menu-button:hover {
+			background-color: #555;
+		}
+
+		nav.open + .menu-button {
+			left: 200px;
+		}
+
+	</style>
+</head>
+<body>
+	<nav>
+		<ul>
+			<li>Link 1</li>
+			<li>Link 2</li>
+			<li>Link 3</li>
+		</ul>
+	</nav>
+	<div class="menu-button">&#9776;</div>
+	<script>
+		const menuButton = document.querySelector('.menu-button');
+		const nav = document.querySelector('nav');
+
+		menuButton.addEventListener('click', () => {
+			nav.classList.toggle('open');
+			menuButton.classList.toggle('open');
+		});
+	</script>
+</body>
+</html>
